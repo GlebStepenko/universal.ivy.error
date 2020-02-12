@@ -29,12 +29,6 @@ app.use(express.static(`${__dirname}/dist/app-ssr/browser`));
 /* Configure Angular Express engine */
 app.engine('html', ngUniversal.ngExpressEngine({
  bootstrap: appServer.AppServerModule,
-  providers: [
-    {
-      provide: BrowserModule,
-      useValue: 'lazy',
-    },
-  ],
 }));
 app.set('view engine', 'html');
 app.set('views', 'dist/app-ssr/browser');
